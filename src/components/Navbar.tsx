@@ -10,13 +10,20 @@ import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
 import clock from "@/assets/icon-clock.svg";
 import profile from "@/assets/icon-avatar.svg";
+import { ArrowBack } from "@mui/icons-material";
+
+interface NavbarProps {
+  backTo?: string;
+}
 
 const settings = ["Mi Perfil"];
 
-function Navbar() {
+const Navbar: React.FC<NavbarProps> = ({ backTo }) => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
+
+  console.log("**bt", backTo);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -35,29 +42,35 @@ function Navbar() {
           height: "64px",
         }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography
-            variant="h6"
-            sx={{
-              flexGrow: 1,
-              fontWeight: 700,
-              letterSpacing: "1pm",
-              color: "inherit",
-              textDecoration: "none",
-            }}>
-            CHRON
-          </Typography>
-          <Image src={clock} alt="Clock Icon" width={20} height={20} />
-          <Typography
-            variant="h6"
-            sx={{
-              mr: 2,
-              flexGrow: 1,
-              letterSpacing: "1pm",
-              color: "inherit",
-              textDecoration: "none",
-            }}>
-            S
-          </Typography>
+          {backTo ? (
+            <ArrowBack sx={{ fontSize: 20 }} />
+          ) : (
+            <>
+              <Typography
+                variant="h6"
+                sx={{
+                  flexGrow: 1,
+                  fontWeight: 700,
+                  letterSpacing: "1pm",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}>
+                CHRON
+              </Typography>
+              <Image src={clock} alt="Clock Icon" width={20} height={20} />
+              <Typography
+                variant="h6"
+                sx={{
+                  mr: 2,
+                  flexGrow: 1,
+                  letterSpacing: "1pm",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}>
+                S
+              </Typography>
+            </>
+          )}
         </Box>
         <Box sx={{ flexGrow: 0, display: "grid", width: "110px" }}>
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -101,5 +114,5 @@ function Navbar() {
       </Container>
     </AppBar>
   );
-}
+};
 export default Navbar;

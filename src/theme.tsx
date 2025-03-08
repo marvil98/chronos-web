@@ -34,7 +34,6 @@ export const theme = createTheme({
                 left: "auto !important",
                 width: "200px",
                 top: "64px !important",
-                backgroundColor: "#E3ECFF",
               },
             },
           ],

@@ -13,7 +13,7 @@ import { Today, AccessTime } from "@mui/icons-material";
 export default function Alarms() {
   return (
     <>
-      <Navbar />
+      <Navbar backTo="/" />
       <Container sx={{ mt: "25px !important" }}>
         <Typography variant="h1">ALARMAS</Typography>
         <Box
@@ -32,7 +32,12 @@ export default function Alarms() {
         </Box>
         <Box sx={{ mt: "16px !important" }}>
           <Card
-            sx={{ minWidth: 240, border: "1px solid", borderRadius: "12px" }}>
+            sx={{
+              minWidth: 240,
+              border: "1px solid",
+              borderRadius: "12px",
+              backgroundColor: "#E3ECFF",
+            }}>
             <CardContent>
               <Typography variant="body1">Alarma creada</Typography>
               <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -51,6 +56,7 @@ export default function Alarms() {
               mt: "16px !important",
               border: "1px solid",
               borderRadius: "12px",
+              backgroundColor: "#E3ECFF",
             }}>
             <CardContent>
               <Typography variant="body1">Alarma creada</Typography>
