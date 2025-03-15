@@ -11,6 +11,7 @@ import Image from "next/image";
 import clock from "@/assets/icon-clock.svg";
 import profile from "@/assets/icon-avatar.svg";
 import { ArrowBack } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   backTo?: string;
@@ -19,11 +20,11 @@ interface NavbarProps {
 const settings = ["Mi Perfil"];
 
 const Navbar: React.FC<NavbarProps> = ({ backTo }) => {
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const router = useRouter();
 
-  console.log("**bt", backTo);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null,
+  );
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -40,10 +41,14 @@ const Navbar: React.FC<NavbarProps> = ({ backTo }) => {
           display: "flex",
           justifyContent: "space-between",
           height: "64px",
-        }}>
+        }}
+      >
         <Box sx={{ display: "flex", alignItems: "center" }}>
           {backTo ? (
-            <ArrowBack sx={{ fontSize: 20 }} />
+            <ArrowBack
+              sx={{ fontSize: 20 }}
+              onClick={() => router.push(backTo)}
+            />
           ) : (
             <>
               <Typography
@@ -54,7 +59,8 @@ const Navbar: React.FC<NavbarProps> = ({ backTo }) => {
                   letterSpacing: "1pm",
                   color: "inherit",
                   textDecoration: "none",
-                }}>
+                }}
+              >
                 CHRON
               </Typography>
               <Image src={clock} alt="Clock Icon" width={20} height={20} />
@@ -66,7 +72,8 @@ const Navbar: React.FC<NavbarProps> = ({ backTo }) => {
                   letterSpacing: "1pm",
                   color: "inherit",
                   textDecoration: "none",
-                }}>
+                }}
+              >
                 S
               </Typography>
             </>
@@ -83,7 +90,8 @@ const Navbar: React.FC<NavbarProps> = ({ backTo }) => {
                 letterSpacing: "1pm",
                 color: "white",
                 textDecoration: "none",
-              }}>
+              }}
+            >
               NOMBRE
             </Typography>
             <Image src={profile} alt="Avatar Icon" width={20} height={20} />
@@ -100,10 +108,19 @@ const Navbar: React.FC<NavbarProps> = ({ backTo }) => {
               vertical: "top",
               horizontal: "right",
             }}
+            sx={{
+              "& .MuiPaper-root": {
+                right: 0,
+                left: "auto !important",
+                width: "200px",
+                top: "64px !important",
+              },
+            }}
             open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}>
+            onClose={handleCloseUserMenu}
+          >
             {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              <MenuItem key={setting} onClick={() => router.push("/mi-perfil")}>
                 <Typography color="primary" sx={{ textAlign: "center" }}>
                   {setting}
                 </Typography>

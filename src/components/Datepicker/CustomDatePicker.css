@@ -1,0 +1,146 @@
+.custom-datepicker {
+  position: relative;
+  width: 370px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #49454f;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  height: 56px;
+}
+
+.datepicker-input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #49454f;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+.datepicker-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #49454f;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.datepicker-label.transformed {
+  top: 0px;
+  left: 12px;
+  font-size: 12px;
+  color: #6a0dad;
+  background-color: #e6e1f0;
+  padding: 0px 5px;
+}
+
+.calendar-container {
+  position: absolute;
+  top: 50px;
+  background: #e6e1f0;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 10;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  color: #6a0dad;
+}
+
+.year,
+.month {
+  display: flex;
+  font-size: 14px;
+}
+
+.header-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding: 10px;
+}
+
+.day-label {
+  text-align: center;
+}
+
+.day {
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.day:hover,
+.selected {
+  background: #6a0dad;
+  border-radius: 50%;
+  color: white;
+}
+
+.calendar-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.cancel,
+.ok {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #6a0dad;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.cancel:hover,
+.ok:hover {
+  background: #d1c4e9;
+}
+
+.year-selector,
+.month-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 12px;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+}
+
+.year-option,
+.month-option {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.year-option:hover,
+.month-option:hover {
+  background: #6a0dad;
+  color: white;
+}

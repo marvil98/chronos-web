@@ -20,15 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <body className={roboto.variable}>
-          <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              {children}
-            </ThemeProvider>
-          </AppRouterCacheProvider>
-        </body>
+      <body className={roboto.variable}>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

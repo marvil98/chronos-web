@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 50px;
+}
+
+.form-inputs {
+  display: grid;
+  gap: 16px;
+}
+
+.actions-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    width: 350px;
+    margin-top: 40px;
+  }
+}

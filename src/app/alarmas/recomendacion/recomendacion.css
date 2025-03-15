@@ -1,0 +1,10 @@
+.item-configuration {
+  display: flex;
+  margin-top: 15px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+  display: flex;
+  gap: 2px;
+}
